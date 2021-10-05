@@ -5,62 +5,49 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Login</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body class="bg-white">
 <!-- url('/img/hero-pattern.svg') -->
-<div class="flex min-h-screen bg-white">
-
-    <div class="w-1/2 bg-cover md:block hidden"
-         style="background-image:  url(https://images.unsplash.com/photo-1520243947988-b7b79f7873e9?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NDd8fGJsYWNrJTIwZm9yZXN0fGVufDB8fDB8eWVsbG93&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60)"></div>
-    <!-- <div class="bg-no-repeat bg-right bg-cover max-w-max max-h-8 h-12 overflow-hidden">
-        <img src="log_in.webp" alt="hey">
-    </div> -->
-
-
-    <div class="md:w-1/2 max-w-lg mx-auto my-24 px-4 py-5 shadow-none">
-
-        <div class="text-left p-0 font-sans">
-
-            <h1 class=" text-gray-800 text-3xl font-medium">Create an account for free</h1>
-            <h3 class="p-1 text-gray-700">Free forever. No payment needed.</h3>
+<div class="min-h-screen bg-no-repeat bg-cover bg-center"
+     style="background-image: url('https://images.unsplash.com/photo-1486520299386-6d106b22014b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80')">
+    <div class="flex justify-end">
+        <div class="bg-white min-h-screen w-1/2 flex justify-center items-center">
+            <div>
+                <form>
+                    <div>
+                        <span class="text-sm text-gray-900">Welcome back</span>
+                        <h1 class="text-2xl font-bold">Login to your account</h1>
+                    </div>
+                    <div class="mt-5">
+                        <label class="block text-md mb-2" for="password">Password</label>
+                        <input class="px-4 w-full border-2 py-2 rounded-md text-sm outline-none" type="password"
+                               name="password" placeholder="password">
+                    </div>
+                    <div class="my-3">
+                        <label class="block text-md mb-2" for="email">Email</label>
+                        <input class="px-4 w-full border-2 py-2 rounded-md text-sm outline-none" type="email"
+                               name="password" placeholder="email">
+                    </div>
+                    <div class="flex justify-between">
+                        <div>
+                            <input class="cursor-pointer" type="radio" name="rememberme">
+                            <span class="text-sm">Remember Me</span>
+                        </div>
+                        <span class="text-sm text-blue-700 hover:underline cursor-pointer">Forgot password?</span>
+                    </div>
+                    <div class="">
+                        <button
+                            class="mt-4 mb-3 w-full bg-green-500 hover:bg-green-400 text-white py-2 rounded-md transition duration-100">
+                            Login now
+                        </button>
+                        <p class="mt-8"> Dont have an account? <span
+                                class="cursor-pointer text-sm text-blue-600"> <a href="{{ route('registration') }}">Join free today</a></span></p>
+                    </div>
+                </form>
+            </div>
         </div>
-        <form action="#" class="p-0">
-            <div class="mt-5">
-
-                <!-- <label for="email" class="sc-bqyKva ePvcBv">Email</label> -->
-                <input type="text"
-                       class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent "
-                       placeholder="Email">
-            </div>
-            <div class="mt-5">
-                <input type="text"
-                       class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent "
-                       placeholder="User-name">
-            </div>
-            <div class="mt-5">
-                <input type="password"
-                       class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent  "
-                       placeholder="Password">
-            </div>
-
-            <div class="mt-6 block p-5 text-sm md:font-sans text-xs text-gray-800">
-                <input type="checkbox" class="inline-block border-0  ">
-                <span display="inline" class="">By creating an account you are agreeing to our
-                        <a class="" href="/s/terms" target="_blank" data-test="Link">
-                        <span class="underline ">Terms and Conditions</span> </a> and
-                    <a class="" href="/s/privacy" target="_blank" data-test="Link">
-                        <span class="underline">Privacy Policy</span> </a>
-                    </span>
-            </div>
-
-            <div class="mt-10">
-                <input type="submit" value="Sign up with email"
-                       class="py-3 bg-green-500 text-white w-full rounded hover:bg-green-600">
-            </div>
-        </form>
-        <a class="" href="/login" data-test="Link"><span class="block  p-5 text-center text-gray-800  text-xs ">Already have an account?</span></a>
     </div>
 </div>
 </body>

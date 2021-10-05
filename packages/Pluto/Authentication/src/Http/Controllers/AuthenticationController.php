@@ -1,6 +1,6 @@
 <?php
 
-namespace Pluto\Authentication\Controllers;
+namespace Pluto\Authentication\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -14,5 +14,10 @@ class AuthenticationController extends Controller
         } else {
             return redirect()->to('app.home');
         }
+    }
+
+    public function register()
+    {
+        return view('authentication.register');
     }
 }

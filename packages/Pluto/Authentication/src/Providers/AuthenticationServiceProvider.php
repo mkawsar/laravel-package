@@ -13,7 +13,7 @@ class AuthenticationServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->make('Pluto\Authentication\Controllers\AuthenticationController');
+        $this->app->make('Pluto\Authentication\Http\Controllers\AuthenticationController');
     }
 
     /**
@@ -23,7 +23,7 @@ class AuthenticationServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadRoutesFrom(__DIR__ . '/../routes.php');
+        $this->loadRoutesFrom(__DIR__ . '/../Http/routes.php');
         $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'authentication');
         $this->publishes([
             __DIR__ . '/../Resources/views' => base_path('/resources/views')
