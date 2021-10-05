@@ -1,0 +1,25 @@
+{
+    "name": "pluto/authentication",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Pluto\\Authentication\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Kawsar Ahmed",
+            "email": "kawsar.diu888@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Pluto\\Authentication\\Providers\\AuthenticationServiceProvider"
+            ],
+            "aliases": {}
+        }
+    }
+}
