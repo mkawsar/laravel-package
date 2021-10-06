@@ -26,7 +26,7 @@ class AuthenticationServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__ . '/../Http/routes.php');
         $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'authentication');
         $this->publishes([
-            __DIR__ . '/../Resources/views' => base_path('/resources/views')
+            __DIR__ . '/../Resources/views' => base_path('/resources/views/pluto')
         ]);
     }
 }

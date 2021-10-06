@@ -8,113 +8,73 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- Styles -->
-    <!--Regular Datatables CSS-->
-    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
-    <!--Responsive Extension Datatables CSS-->
-    <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <style>
-        .dataTables_wrapper select,
-        .dataTables_wrapper .dataTables_filter input {
-            color: #4a5568; /*text-gray-700*/
-            padding-left: 1rem; /*pl-4*/
-            padding-right: 1rem; /*pl-4*/
-            padding-top: .5rem; /*pl-2*/
-            padding-bottom: .5rem; /*pl-2*/
-            line-height: 1.25; /*leading-tight*/
-            border-width: 2px; /*border-2*/
-            border-radius: .25rem;
-            border-color: #edf2f7; /*border-gray-200*/
-            background-color: #edf2f7; /*bg-gray-200*/
-        }
-
-        /*Row Hover*/
-        table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
-            background-color: #ebf4ff; /*bg-indigo-100*/
-        }
-
-        /*Pagination Buttons*/
-        .dataTables_wrapper .dataTables_paginate .paginate_button {
-            font-weight: 700; /*font-bold*/
-            border-radius: .25rem; /*rounded*/
-            border: 1px solid transparent; /*border border-transparent*/
-        }
-
-        /*Pagination Buttons - Current selected */
-        .dataTables_wrapper .dataTables_paginate .paginate_button.current {
-            color: #fff !important; /*text-white*/
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06); /*shadow*/
-            font-weight: 700; /*font-bold*/
-            border-radius: .25rem; /*rounded*/
-            background: #667eea !important; /*bg-indigo-500*/
-            border: 1px solid transparent; /*border border-transparent*/
-        }
-
-        /*Pagination Buttons - Hover */
-        .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-            color: #fff !important; /*text-white*/
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06); /*shadow*/
-            font-weight: 700; /*font-bold*/
-            border-radius: .25rem; /*rounded*/
-            background: #667eea !important; /*bg-indigo-500*/
-            border: 1px solid transparent; /*border border-transparent*/
-        }
-
-        /*Add padding to bottom border */
-        table.dataTable.no-footer {
-            border-bottom: 1px solid #e2e8f0; /*border-b-1 border-gray-300*/
-            margin-top: 0.75em;
-            margin-bottom: 0.75em;
-        }
-
-        /*Change colour of responsive icon*/
-        table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
-            background-color: #667eea !important; /*bg-indigo-500*/
-        }
-
-    </style>
-
 </head>
-<body class="antialiased">
-<div class="container w-full md:w-4/5 xl:w-3/5  mx-auto px-2">
-    <!--Card-->
-    <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
-        <table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
-            <thead>
-            <tr>
-                <th data-priority="1">Name</th>
-                <th data-priority="2">Email</th>
-                <th data-priority="6">Action</th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($users as $key => $user)
-                <tr>
-                    <td>{{$user->name}}</td>
-                    <td>{{ $user->email }}</td>
-                    <td>{{ $key }}</td>
+<body>
+<div
+    class="min-w-screen min-h-screen flex items-center justify-center font-sans">
+    <div class="w-full lg:w-5/6">
+        <div class="bg-white shadow-md rounded my-6">
+            <table class="min-w-max w-full table-auto">
+                <thead>
+                <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                    <th class="py-3 px-6 text-left">Name</th>
+                    <th class="py-3 px-6 text-left">Email</th>
+                    <th class="py-3 px-6 text-center">Actions</th>
                 </tr>
-            @endforeach
-            </tbody>
-        </table>
+                </thead>
+                <tbody class="text-gray-600 text-sm font-light">
+                @foreach($users as $key => $user)
+                    <tr class="border-b border-gray-200 hover:bg-gray-100">
+                        <td class="py-3 px-6 text-left whitespace-nowrap">
+                            <div class="flex items-center">
+                                <div class="mr-2">
+                                    <img class="w-6 h-6 rounded-full"
+                                         src="https://dummyimage.com/400x400/ccc/fff&text={{ strtoupper(substr($user->name, 0 ,1)) }}"/>
+                                </div>
+                                <span class="font-medium">{{ $user->name }}</span>
+                            </div>
+                        </td>
+                        <td class="py-3 px-6 text-left">
+                            <div class="flex items-center">
+                                <span>{{ $user->email }}</span>
+                            </div>
+                        </td>
+                        <td class="py-3 px-6 text-center">
+                            <div class="flex item-center justify-center">
+                                <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                         stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                              d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                    </svg>
+                                </div>
+                                <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                         stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                              d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
+                                    </svg>
+                                </div>
+                                <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                         stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                              d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach()
+                </tbody>
+            </table>
+            {!! $users->links() !!}
+        </div>
     </div>
-    <!--/Card-->
 </div>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
-<!--Datatables -->
-<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-<script>
-    $(document).ready(function () {
-        var table = $('#example').DataTable({
-            responsive: true
-        })
-            .columns.adjust()
-            .responsive.recalc();
-    });
-</script>
+{{--<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>--}}
 </body>
 </html>

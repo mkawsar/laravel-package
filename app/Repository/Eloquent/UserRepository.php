@@ -23,9 +23,9 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
         return $this->model->all();
     }
 
-    public function paginate($limit = null, $columns = ['*'])
+    public function paginate($limit = null, $columns = ['*'], $order = 'name', $direction = 'asc')
     {
-        return $this->model->paginate($limit, $columns);
+        return $this->model->orderBy($order, $direction)->paginate($limit, $columns);
     }
 
     public function findWhere(array $where, $columns = ['*'])

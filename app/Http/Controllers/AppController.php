@@ -15,7 +15,7 @@ class AppController extends Controller
     }
     public function index()
     {
-        $users = $this->userRepository->all();
+        $users = $this->userRepository->paginate(10, '*', 'name', 'asc');
         return view('welcome', ['users' => $users]);
     }
 }
